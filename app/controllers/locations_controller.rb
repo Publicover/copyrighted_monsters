@@ -1,5 +1,9 @@
 class LocationsController < ApplicationController
 
+  def index
+    @locations = Location.all
+  end
+
   def show
     @location = Location.find(params[:id])
   end
@@ -8,11 +12,35 @@ class LocationsController < ApplicationController
     @location = Location.new
   end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
   def create
     @location = Location.new(location_params)
 
-    @location.save
-    redirect_to @location
+    if @location.save
+      redirect_to @location
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    @location = Location.find(params[:id])
+
+    if @location.save
+      redirect_to @location
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+
+    redirect_to locations_path
   end
 
   private
