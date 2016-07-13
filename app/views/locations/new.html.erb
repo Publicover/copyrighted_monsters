@@ -1,0 +1,21 @@
+<center>
+
+<br>
+
+<h1> NEW LOCATION </h1>
+
+<%= form_for @location do |f| %>
+  <p>
+    <%= f.label :address %> <br>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
