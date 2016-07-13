@@ -1,7 +1,7 @@
 <center>
 
 <br>
-
+<h1> YOU ARE HERE </h1>
 <p>
   <strong>ADDRESS</stong>
   <%= @location.address %>
@@ -11,6 +11,35 @@
   <strong>NAME</strong>
   <%= @location.name %>
 </p>
+
+<h2> SO ARE SOME MONSTERS </h2>
+----------
+<% @location.monsters.each do |monster| %>
+  <p>
+    <strong>Name</strong>
+    <%= monster.name %>
+  </p>
+  <p>
+    <strong>Rarity</strong>
+    <%= monster.rarity %>
+  </p>
+----------<br>
+<% end %>
+
+<h3>ADD A MONSTER?</h3>
+<%= form_for ([@location, @location.monsters.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :rarity %> <br>
+    <%= f.text_field :rarity %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <td><%= link_to 'EDIT', edit_location_path %></td>
 <td><%= link_to 'BACK', locations_path %></td>

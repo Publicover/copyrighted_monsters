@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'dashboards/index'
 
-  resources :locations
+  resources :locations do
+    resources :monsters
+  end
 
   root 'dashboards#index'
 
