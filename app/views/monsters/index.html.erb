@@ -3,3 +3,18 @@
 <br>
 
 <h1> ALL THE MONSTERS </h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rarity</th>
+  </tr>
+
+  <% @monsters.each do |monster| %>
+    <tr>
+      <td><%= monster.name %></td>
+      <td><%= monster.rarity %></td>
+      
+    </tr>
+  <% end %>
+</table>
