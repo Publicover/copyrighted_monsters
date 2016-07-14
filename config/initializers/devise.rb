@@ -5,7 +5,7 @@ Devise.setup do |config|
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   config.secret_key = "#{ENV["HEROKU_MONSTER_KEY"]}"
-""
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -97,7 +97,11 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
+<<<<<<< HEAD
   # config.pepper = '4c078e04133d8cc6c25a47df02a49a7bf1b3e9d70704042888e4f08c26e9e8330a601cfd09681be8d2bda0eb505ee819a8695dae07711e2b4b495108f9607e13'
+=======
+  # config.pepper = 'ee6ffcafc88a47bf6083d04bed185de538f51ad41914fe3e388597e57f5210b9a0bce8282e8311fa094a051cf9abfd94be54b0615d208ff1083ad141d6b5cd0e'
+>>>>>>> 5e4c9c508aaeaf2476f6c722fec33c5f46e42192
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
