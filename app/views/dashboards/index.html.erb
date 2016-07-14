@@ -5,6 +5,7 @@
 <br>
 <br>
 <% monster_number = Monster.count %>
+<% location_count = Location.count('address', :distinct => true) %>
 <h1>Welcome to the Copyrighted Monster Locator. </h1>
 </h3>We found <%= monster_number %> copyrighted monsters in the wild. <br>
 So far.</h3>
