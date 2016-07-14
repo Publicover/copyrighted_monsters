@@ -8,12 +8,14 @@
   <tr>
     <th>Address</th>
     <th>Name</th>
+    <th>Checkpoint</th>
   </tr>
 
   <% @locations.each do |location| %>
     <tr>
       <td><%= location.address %></td>
       <td><%= location.name %></td>
+      <td><%= location.checkpoint %></td>
       <td><%= link_to 'SHOW', location_path(location) %></td>
       <td><%= link_to 'EDIT', edit_location_path(location) %></td>
       <td><%= link_to 'Destroy', location_path(location),

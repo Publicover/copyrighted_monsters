@@ -2,7 +2,7 @@ class MonstersController < ApplicationController
 
   def create
     @location = Location.find(params[:location_id])
-    @comment = @location.monsters.create(monster_params)
+    @monster = @location.monsters.create(monster_params)
     redirect_to location_path(@location)
   end
 

@@ -12,6 +12,11 @@
   <%= @location.name %>
 </p>
 
+<p>
+  <strong>CHECKPOINT?</strong>
+  <%= @location.checkpoint %>
+</p>
+
 <h2> SO ARE SOME MONSTERS </h2>
 ----------
 <% @location.monsters.each do |monster| %>
@@ -30,11 +35,46 @@
 <%= form_for ([@location, @location.monsters.build]) do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.select :name, [["Abra"], ["Aerodactyl"], ["Alakazam"], ["Arbok"],
+                 ["Arcanine"], ["Articuno"], ["Beedrill"], ["Bellsprout"],
+                 ["Blastoise"], ["Bulbasaur"], ["Butterfree"], ["Caterpie"],
+                 ["Chansey"], ["Charizard"], ["Charmander"], ["Charmeleon"],
+                 ["Clefable"], ["Clefairy"], ["Cloyster"], ["Cubone"],
+                 ["Dewgong"], ["Diglett"], ["Ditto"], ["Dodrio"], ["Doduo"],
+                 ["Dragonair"], ["Dragonite"], ["Dratini"], ["Drowzee"],
+                 ["Dugtrio"], ["Eevee"], ["Ekans"], ["Electabuzz"],
+                 ["Electrode"], ["Exeggcute"], ["Exeggutor"], ["Farfetch'd"],
+                 ["Fearow"], ["Flareon"], ["Gastly"], ["Gengar"], ["Geodude"],
+                 ["Gloom"], ["Golbat"], ["Goldeen"], ["Golduck"], ["Golem"],
+                 ["Graveler"], ["Grimer"], ["Growlithe"], ["Gyarados"],
+                 ["Haunter"], ["Hitmonchan"], ["Hitmonlee"], ["Horsea"],
+                 ["Hypno"], ["Ivysaur"], ["Jigglypuff"], ["Jolteon"], ["Jynx"],
+                 ["Kabuto"], ["Kabutops"], ["Kadabra"], ["Kakuna"],
+                 ["Kangaskhan"], ["Kingler"], ["Koffing"], ["Krabby"],
+                 ["Lapras"], ["Lickitung"], ["Machamp"], ["Machoke"],
+                 ["Machop"], ["Magikarp"], ["Magmar"], ["Magnemite"],
+                 ["Magneton"], ["Mankey"], ["Marowak"], ["Meowth"], ["Metapod"],
+                 ["Mew"], ["Mewtwo"], ["Moltres"], ["Mr. Mime"], ["Muk"],
+                 ["Nidoking"], ["Nidoqueen"], ["Nidoran F"], ["Nidoran M"],
+                 ["Nidorina"], ["Nidorino"], ["Ninetales"], ["Oddish"],
+                 ["Omanyte"], ["Omastar"], ["Onix"], ["Paras"], ["Parasect"],
+                 ["Persian"], ["Pidgeot"], ["Pidgeotto"], ["Pidgey"],
+                 ["Pikachu"], ["Pinsir"], ["Poliwag"], ["Poliwhirl"],
+                 ["Poliwrath"], ["Ponyta"], ["Porygon"], ["Primeape"],
+                 ["Psyduck"], ["Raichu"], ["Rapidash"], ["Raticate"],
+                 ["Rattata"], ["Rhydon"], ["Rhyhorn"], ["Sandshrew"],
+                 ["Sandslash"], ["Scyther"], ["Seadra"], ["Seaking"],
+                 ["Seel"], ["Shellder"], ["Slowbro"], ["Slowpoke"],
+                 ["Snorlax"], ["Spearow"], ["Squirtle"], ["Starmie"],
+                 ["Staryu"], ["Tangela"], ["Tauros"], ["Tentacool"],
+                 ["Tentacruel"], ["Vaporeon"], ["Venomoth"], ["Venonat"],
+                 ["Venusaur"], ["Victreebel"], ["Vileplume"], ["Voltorb"],
+                 ["Vulpix"], ["Wartortle"], ["Weedle"], ["Weepinbell"],
+                 ["Weezing"], ["Wigglytuff"], ["Zapdos"], ["Zubat"]] %>
   </p>
   <p>
     <%= f.label :rarity %> <br>
-    <%= f.text_field :rarity %>
+    <%= f.select :rarity, [["I have no idea", "0"], ["1: Common", "1"], ["2: Uncommon", "2"], ["3: Rare", "3"], ["4: Very Rare", "4"], ["5: Epic", "5"], ["6: Legendary", "6"]] %>
   </p>
   <p>
     <%= f.submit %>

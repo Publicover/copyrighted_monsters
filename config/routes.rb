@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'dashboards/index'
 
+  resources :monsters, only: [:index]
   resources :locations do
     resources :monsters
   end
