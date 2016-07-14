@@ -17,6 +17,16 @@
   <%= @location.checkpoint %>
 </p>
 
+<p>
+  <strong>CITY</strong>
+  <%= @location.city %>
+</p>
+
+<p>
+  <strong>STATE</strong>
+  <%= @location.state %>
+</p>
+
 <h2> SO ARE SOME MONSTERS </h2>
 ----------
 <% @location.monsters.each do |monster| %>
@@ -72,7 +82,7 @@
                  ["Vulpix"], ["Wartortle"], ["Weedle"], ["Weepinbell"],
                  ["Weezing"], ["Wigglytuff"], ["Zapdos"], ["Zubat"]] %>
   </p>
-  
+
   <p>
     <%= f.submit %>
   </p>
