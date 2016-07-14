@@ -22,7 +22,7 @@ class Monster < ActiveRecord::Base
          "Aerodactyl", "Hitmochan", "Hitmonlee"
       self.rarity = "4: Special"
     when "Dratini", "Farfetch'd", "Mr Mine", "Jynx", "Magmar", "Electabuzz",
-         "Porygon"
+         "Porygon", "Beedrill"
       self.rarity = "5: Epic"
     when "Lapras", "Snorlax", "Kangaskhan", "Chansey"
       self.rarity = "6: Myths"

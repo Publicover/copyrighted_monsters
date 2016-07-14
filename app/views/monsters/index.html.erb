@@ -8,13 +8,23 @@
   <tr>
     <th>Name</th>
     <th>Rarity</th>
+    <th>Location</th>
+    <th>City</th>
+    <th>State</th>
   </tr>
 
   <% @monsters.each do |monster| %>
     <tr>
       <td><%= monster.name %></td>
       <td><%= monster.rarity %></td>
+      <td><%= monster.location.try(:address) %> </td>
+      <td><%= monster.location.try(:city) %> </td>
+      <td><%= monster.location.try(:state) %> </td>
       
     </tr>
   <% end %>
 </table>
+
+<br>
+<%= link_to "GOT A NEW LOCATION?", new_location_path %> <br>
+<%= link_to "SEE ALL THE LOCATIONS", controller: "locations" %>
