@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   get 'dashboards/index'
 
   resources :monsters, only: [:index, :show, :edit, :destroy]
