@@ -25,6 +25,16 @@
   </p>
 
   <p>
+    <%= f.label :city %><br>
+    <%= f.select :city, [["Greensboro"]] %>
+  </p>
+
+  <p>
+    <%= f.label :state %><br>
+    <%= f.select :state, [["North Carolina"]] %>
+  </p>
+
+  <p>
     <%= f.label 'checkpoint_true', 'yup' %>
     <%= f.radio_button :checkpoint, true %>
   </p>

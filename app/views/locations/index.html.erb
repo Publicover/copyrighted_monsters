@@ -8,6 +8,8 @@
   <tr>
     <th>Address</th>
     <th>Name</th>
+    <th>City</td>
+    <th>State</td>
     <th>Checkpoint</th>
   </tr>
 
@@ -15,6 +17,8 @@
     <tr>
       <td><%= location.address %></td>
       <td><%= location.name %></td>
+      <td><%= location.city %></td>
+      <td><%= location.state %></td>
       <td><%= location.checkpoint %></td>
       <td><%= link_to 'SHOW', location_path(location) %></td>
       <td><%= link_to 'EDIT', edit_location_path(location) %></td>
