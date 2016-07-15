@@ -20,7 +20,7 @@
       <td><%= monster.location.try(:address) %> </td>
       <td><%= monster.location.try(:city) %> </td>
       <td><%= monster.location.try(:state) %> </td>
-      <td><%= link_to "DESTROY MONSTER", [monster.location, monster],
+      <td><%= link_to "DELETE RECORD", [monster.location, monster],
                                     method: :delete,
                                     data: { confirm: "Hope you know what you're doing" } %>
     </tr>
