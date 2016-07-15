@@ -6,11 +6,11 @@
 
 <table>
   <tr>
-    <th>Address</th>
-    <th>Name</th>
-    <th>City</td>
-    <th>State</td>
-    <th>Checkpoint</th>
+    <th><%= sort_link "address" %></th>
+    <th><%= sort_link "name" %></th>
+    <th><%= sort_link "City" %></th>
+    <th><%= sort_link "State" %></th>
+    <th><%= sort_link "Checkpoint" %></th>
   </tr>
 
   <% @locations.each do |location| %>
