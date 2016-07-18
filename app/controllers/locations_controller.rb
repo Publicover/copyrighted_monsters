@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   def index
     @locations = Location.all
@@ -44,6 +45,19 @@ class LocationsController < ApplicationController
   end
 
   private
+
+    def sortable_columns
+      ["address", "name", "city", "state", "checkpoint"]
+    end
+
+    def sort_column
+      sortable_columns.include?(params[:column]) ? params[:column] : "address"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def location_params
       params.require(:location).permit(:address, :name, :checkpoint, :city, :state, :checkpoint)
     end
