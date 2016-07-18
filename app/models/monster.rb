@@ -2,6 +2,10 @@ class Monster < ActiveRecord::Base
   before_save :set_rarity
   belongs_to :location
 
+  # def map_response
+  #   @map_response = HTTParty.get("http://maps.googleapis.com/maps/api/js?key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}")
+  # end
+
   def set_rarity
     case self.name
     when "Rattata", "Pidgey", "Weedle", "Venonat", "Zubat", "Caterpie", "Doduo"
