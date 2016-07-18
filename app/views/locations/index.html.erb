@@ -1,4 +1,3 @@
-<center>
 
 <br>
 
@@ -6,25 +5,24 @@
 
 <table>
   <tr>
-    <th>Address</th>
-    <th>Name</th>
-    <th>City</td>
-    <th>State</td>
-    <th>Checkpoint</th>
+    <th><%= sort_link "address" %></th>
+    <th><%= sort_link "name" %></th>
+    <th><%= sort_link "City" %></th>
+    <th><%= sort_link "State" %></th>
+    <th><%= sort_link "Checkpoint" %></th>
   </tr>
 
   <% @locations.each do |location| %>
-    <tr>
-      <td><%= location.address %></td>
-      <td><%= location.name %></td>
-      <td><%= location.city %></td>
-      <td><%= location.state %></td>
-      <td><%= location.checkpoint %></td>
-      <td><%= link_to 'SHOW', location_path(location) %></td>
-      <td><%= link_to 'EDIT', edit_location_path(location) %></td>
-      <td><%= link_to 'Destroy', location_path(location),
-              method: :delete,
-              data: { confirm: "OK, well, be careful, I guess" } %> </td>
+    <td><%= location.address %></td>
+    <td><%= location.name %></td>
+    <td><%= location.city %></td>
+    <td><%= location.state %></td>
+    <td><%= location.checkpoint %></td>
+    <td><%= link_to 'SHOW', location_path(location) %></td>
+    <td><%= link_to 'EDIT', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', location_path(location),
+            method: :delete,
+            data: { confirm: "OK, well, be careful, I guess" } %> </td>
     </tr>
   <% end %>
 </table>
@@ -34,5 +32,3 @@
 <%= link_to "HOME", root_path %> <br>
 <%= link_to "GOT A NEW LOCATION?", new_location_path %> |
 <%= link_to "SEE ALL THE MONSTERS", monsters_path %>
-
-</center>
