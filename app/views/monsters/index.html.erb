@@ -1,7 +1,14 @@
+<% monster_map = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_Zt-ingcU4gRbcoK70AJKv4&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
+
 <center>
 <br>
-
 <h1> ALL THE MONSTERS </h1>
+<br>
+<br><div>
+<iframe width="600" height="450" frameborder="0" style="border:0"
+  src= <%= monster_map %>
+  allowfullscreen> </iframe>
+</div>
 <br>
 <table>
   <tr>
@@ -27,7 +34,23 @@
 </table>
 
 <br>
-<%= link_to "GOT A NEW LOCATION?", new_location_path %> <br>
+<%= link_to "GOT A NEW LOCATION?", new_location_path %> |
 <%= link_to "SEE ALL THE LOCATIONS", controller: "locations" %>
 
-<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_Zt-ingcU4gRbcoK70AJKv4&key=" allowfullscreen></iframe>
+<% monster_array = [] %>
+
+<% @monsters.each do |monster| %>
+  <% monster_array << monster.location.try(:address) + "+" + monster.location.try(:city) + "+" + monster.location.try(:state) %>
+<% end%>
+<br>
+monster_array: <%= monster_array %>
+<br>
+monster_array.uniq: <%= monster_array.uniq! %>
+<br>
+<% monster_array.each do |monster| %>
+  <% monster.gsub!(/\s/,'+') %>
+<% end %>
+<br>
+monster_array.gsub: <%= monster_array %>
+
+https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}
