@@ -13,12 +13,12 @@
   </tr>
 
   <% @locations.each do |location| %>
-    <td><%= location.address %></td>
+  <% this_address = location.address %>
+    <td><%= link_to "#{this_address}", location_path(location) %></td>
     <td><%= location.name %></td>
     <td><%= location.city %></td>
     <td><%= location.state %></td>
     <td><%= location.checkpoint %></td>
-    <td><%= link_to 'SHOW', location_path(location) %></td>
     <td><%= link_to 'EDIT', edit_location_path(location) %></td>
     <td><%= link_to 'Destroy', location_path(location),
             method: :delete,
