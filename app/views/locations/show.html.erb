@@ -1,3 +1,22 @@
+<center>
+<% present_location_id = @location.id %>
+<% present_location_address = (@location.address).gsub(/\s/,'+') %>
+<% location_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{present_location_address}") %>
+<% lat = location_geocode["results"][0]["geometry"]["location"]["lat"] %>
+<% lng = location_geocode["results"][0]["geometry"]["location"]["lng"] %>
+<% place_id = location_geocode["results"][0]["place_id"] %>
+<% location_map = "https://www.google.com/maps/embed/v1/place?q=place_id:#{place_id}&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
+<br>
+<iframe width="600" height="450" frameborder="0" style="border:0"
+  src= <%= location_map %>
+  allowfullscreen> </iframe>
+</div>
+<br>
+
+<br>
+
+
+
 
 <br>
 <h1> YOU ARE HERE </h1>
@@ -90,3 +109,4 @@
 <td><%= link_to 'EDIT', edit_location_path %></td> <br>
 <td><%= link_to 'SEE ALL THE LOCATIONS', locations_path %></td> |
 <td><%= link_to 'SEE ALL THE MONSTERS', monsters_path %>
+</center>
