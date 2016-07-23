@@ -4,6 +4,7 @@
 <% lng = monster_geocode["results"][0]["geometry"]["location"]["lng"] %>
 <% place_id = monster_geocode["results"][0]["place_id"] %>
 
+
 <center>
 <br>
 <h1> ALL THE MONSTERS </h1>
@@ -38,27 +39,17 @@
 </table>
 
 <br>
+
 <%= link_to "GOT A NEW LOCATION?", new_location_path %> |
 <%= link_to "SEE ALL THE LOCATIONS", controller: "locations" %>
 
+<p></p>
+<br>
+<p></p>
 <% monster_array = [] %>
-
 <% @monsters.each do |monster| %>
   <% monster_array << monster.location.try(:address) + "+" + monster.location.try(:city) + "+" + monster.location.try(:state) %>
 <% end%>
-<br>
-monster_array: <%= monster_array %>
-<br>
-monster_array.uniq: <%= monster_array.uniq! %>
-<br>
 <% monster_array.each do |monster| %>
   <% monster.gsub!(/\s/,'+') %>
 <% end %>
-<br>
-monster_array.gsub: <%= monster_array %>
-<br>
-<%= lat %>, <%= lng %>
-<br>
-
-
-https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}
