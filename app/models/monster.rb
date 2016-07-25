@@ -14,7 +14,7 @@ class Monster < ActiveRecord::Base
          "Abra", "Geodude", "Sandshrew", "Vulpix", "Diglett", "Exeggcute",
          "Tentacool", "Shellder", "Onix", "Poliwhirl"
       self.rarity = "2: Uncommon"
-    when "Machamp", "Ponyta", "Weezing", "Voltrob", "Horsea", "Staryu",
+    when "Fearow", "Machamp", "Ponyta", "Weezing", "Voltrob", "Horsea", "Staryu",
          "Tangela", "Cubone", "Ryhorn", "Grimmer", "Magnemite", "Scyther",
          "Lickitung"
       self.rarity = "3: Rare"

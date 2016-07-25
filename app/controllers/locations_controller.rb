@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @locations = Location.all
+    @locations = Location.order(sort_column + " " + sort_direction)
   end
 
   def show

@@ -8,20 +8,20 @@
   <tr>
     <th><%= sort_link "address" %></th>
     <th><%= sort_link "name" %></th>
-    <th><%= sort_link "City" %></th>
-    <th><%= sort_link "State" %></th>
-    <th><%= sort_link "Checkpoint" %></th>
+    <th><%= sort_link "city" %></th>
+    <th><%= sort_link "state" %></th>
+    <th><%= sort_link "checkpoint" %></th>
   </tr>
 
   <% @locations.each do |location| %>
   <% this_address = location.address %>
-    <td><%= link_to "#{this_address}", location_path(location) %></td>
-    <td><%= location.name %></td>
-    <td><%= location.city %></td>
-    <td><%= location.state %></td>
-    <td><%= location.checkpoint %></td>
-    <td><%= link_to 'EDIT', edit_location_path(location) %></td>
-    <td><%= link_to 'Destroy', location_path(location),
+    <td>  |  <%= link_to "#{this_address}", location_path(location) %></td>
+    <td>  |  <%= location.name %></td>
+    <td>  |  <%= location.city %></td>
+    <td>  |  <%= location.state %></td>
+    <td>  |  <%= location.checkpoint %></td>
+    <td>  |  <%= link_to 'EDIT', edit_location_path(location) %></td>
+    <td>  |  <%= link_to 'Destroy', location_path(location),
             method: :delete,
             data: { confirm: "OK, well, be careful, I guess" } %> </td>
     </tr>
