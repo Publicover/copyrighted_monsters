@@ -1,8 +1,9 @@
 class MonstersController < ApplicationController
   before_filter :load_location
+  helper_method :sort_column, :sort_direction
 
   def index
-    @monsters = @location.present? ? @location.monsters : Monster.all
+    @monsters = (@location.present? ? @location.monsters : Monster.all).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -28,6 +29,18 @@ class MonstersController < ApplicationController
   private
     def load_location
       @location = Location.find(params[:location_id]) if params[:location_id].present?
+    end
+
+    def sortable_columns
+      ["name", "rarity"]
+    end
+
+    def sort_column
+      sortable_columns.include?(params[:column]) ? params[:column] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
     def monster_params
