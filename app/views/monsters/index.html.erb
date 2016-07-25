@@ -19,16 +19,17 @@
   <tr>
     <th><%= sort_link "name" %></th>
     <th><%= sort_link "rarity" %></th>
-    <th>Location</th>
+    <th>Address</th>
     <th>City</th>
     <th>State</th>
   </tr>
 
   <% @monsters.each do |monster| %>
+  <% this_address = monster.location.try(:address) %>
     <tr>
       <td><%= monster.name %></td>
       <td><%= monster.rarity %></td>
-      <td><%= monster.location.try(:address) %> </td>
+      <td><%= this_address %> </td>
       <td><%= monster.location.try(:city) %> </td>
       <td><%= monster.location.try(:state) %> </td>
       <td><%= link_to "DELETE RECORD", [monster.location, monster],
