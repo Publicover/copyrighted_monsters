@@ -7,7 +7,6 @@ gem 'rails', '4.2.3'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'sqlite3', group: :development
-gem 'bootstrap'
 gem 'httparty'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
