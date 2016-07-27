@@ -1,6 +1,9 @@
 class LocationsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+# <%= full_location = Location.find_by(busiest_location) %>
+# try to slip that into index
+
   def index
     @locations = Location.order(sort_column + " " + sort_direction)
   end

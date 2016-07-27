@@ -1,5 +1,25 @@
 
 <br>
+<center>
+
+<%= busy_location_hash = Location.group(:address).count %><br>
+<%= busiest_location = busy_location_hash.key(busy_location_hash.values.max) %><br>
+<%= busiest_address = Location.find_by_address("#{busiest_location}") %><br>
+<%= full_location = "#{busiest_address.address}+#{busiest_address.city}+#{busiest_address.state}" %><br>
+<%= full_location.gsub!(/\s/,'+') %><br>
+
+<%= location_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_location}") %>
+<% lat = location_geocode["results"][0]["geometry"]["location"]["lat"] %>
+<% lng = location_geocode["results"][0]["geometry"]["location"]["lng"] %>
+<% place_id = location_geocode["results"][0]["place_id"] %>
+<% location_map = "https://www.google.com/maps/embed/v1/place?q=place_id:#{place_id}&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
+
+
+<iframe width="700" height="550" frameborder="0" style="border:0"
+  src= <%= location_map %>
+  allowfullscreen> </iframe>
+</div>
+</center>
 
 <h1> ALL THE LOCATIONS </h1>
 <p> Click an address to see a map of the area and the monsters living there.</p>
