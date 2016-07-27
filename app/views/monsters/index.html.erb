@@ -1,19 +1,26 @@
-<% monster_map = "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_Zt-ingcU4gRbcoK70AJKv4&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
-<% monster_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=403+S.+Elam+Greensboro+North+Carolina") %>
+<% busy_location_hash = Location.group(:address).count %>
+<% busiest_location = busy_location_hash.key(busy_location_hash.values.max) %>
+<% busiest_address = Location.find_by_address("#{busiest_location}") %>
+<% full_location = "#{busiest_address.address}+#{busiest_address.city}+#{busiest_address.state}" %>
+<% full_location.gsub!(/\s/,'+') %>
+
+<% monster_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_location}") %>
 <% lat = monster_geocode["results"][0]["geometry"]["location"]["lat"] %>
 <% lng = monster_geocode["results"][0]["geometry"]["location"]["lng"] %>
 <% place_id = monster_geocode["results"][0]["place_id"] %>
-
+<% monster_map = "https://www.google.com/maps/embed/v1/place?q=place_id:#{place_id}&key=#{ENV["GOOGLE_MONSTER_MAPS_KEY"]}" %>
 
 <center>
-<br>
-<h1> ALL THE MONSTERS </h1>
-<br>
+
 <br><div>
+  <h3>This map shows the location with the most monsters caught.</h3>
 <iframe width="700" height="550" frameborder="0" style="border:0"
   src= <%= monster_map %>
   allowfullscreen> </iframe>
 </div>
+<br>
+<br>
+<h1> ALL THE MONSTERS </h1>
 <br>
 <table>
   <tr>

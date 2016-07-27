@@ -1,10 +1,10 @@
 <center>
 
-<% busy_location_hash = Location.group(:address).count %><br>
-<% busiest_location = busy_location_hash.key(busy_location_hash.values.max) %><br>
-<% busiest_address = Location.find_by_address("#{busiest_location}") %><br>
-<% full_location = "#{busiest_address.address}+#{busiest_address.city}+#{busiest_address.state}" %><br>
-<% full_location.gsub!(/\s/,'+') %><br>
+<% busy_location_hash = Location.group(:address).count %>
+<% busiest_location = busy_location_hash.key(busy_location_hash.values.max) %>
+<% busiest_address = Location.find_by_address("#{busiest_location}") %>
+<% full_location = "#{busiest_address.address}+#{busiest_address.city}+#{busiest_address.state}" %>
+<% full_location.gsub!(/\s/,'+') %>
 <% location_geocode = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{full_location}") %>
 <% lat = location_geocode["results"][0]["geometry"]["location"]["lat"] %>
 <% lng = location_geocode["results"][0]["geometry"]["location"]["lng"] %>
