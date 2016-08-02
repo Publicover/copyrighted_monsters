@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  address: MyString
-  name: MyString
+  address: AddressOne
+  name: NameOne
+  city: CityOne
+  state: StateOne
 
 two:
-  address: MyString
-  name: MyString
+  address: AddressTwo
+  name: NameTwo
+  city: CityTwo
+  state: StateTwo
